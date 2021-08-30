@@ -1,0 +1,12 @@
+<%= form_for(@transaction, url: client_account_transactions_path(@client, @account, transaction))  do |f| %><div>
+<%= f.label :Select_Transaction_Type %><br>
+<%= f.select :transaction_type, options_for_select(["Select one","deposit", "withdraw"]) %>
+</div>
+<div>
+<%= f.label :Enter_the_amount%><br>
+<%= f.text_field :amount%>
+</div>
+<div class = "action">
+<%= f.submit %>
+</div>
+<% end %>

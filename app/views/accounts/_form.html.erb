@@ -1,0 +1,14 @@
+<%= form_for(@account, url: client_accounts_path(@client)) do |f|%>
+<div>
+<%= f.label :Initial_amount_you_want_to_deposit %><br>
+<%= f.text_field :balance%>
+</div>
+
+<div class = "action">
+<%= f.submit %>
+</div>
+<% end %>
+
+
+   
+ 

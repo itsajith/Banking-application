@@ -1,0 +1,38 @@
+<h1>Welcome to Webkorps banking application</h1>
+<p>Please fill the below details to <b>create your account</b></p>
+<%= form_for @client do |f| %>
+<div>
+<%= f.label :first_name%><br>
+<%= f.text_field :first_name%>
+</div>
+
+<div>
+<%= f.label :last_name %><br>
+<%= f.text_field :last_name%>
+</div>
+
+<div>
+<%= f.label :Gender %><br>
+<%= f.select :gender, options_for_select(["Select one","male", "female"]) %>
+</div>
+
+<div>
+<%= f.label :email_address %><br>
+<%= f.text_field :email_address%>
+</div>
+
+<div>
+<%= f.label :contact_number %><br>
+<%= f.text_field :contact_number%>
+</div>
+
+<div>
+<%= f.label :country %><br>
+<%= f.select :country, options_for_select(["Select one","India", "America"]) %>
+</div>
+
+
+<div class = "action">
+<%= f.submit %>
+</div>
+<% end %>

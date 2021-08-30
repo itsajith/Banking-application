@@ -1,0 +1,24 @@
+<h1>Transactions Details</h1>
+
+<table>
+<thead>
+<tr>
+<th>Amount</th>&nbsp&nbsp
+<th>Transaction Number</th>&nbsp&nbsp
+<th>Transaction Type</th>&nbsp&nbsp
+
+</tr>
+
+</thead>
+
+<body>
+<% @transactions.each do |transaction| %>
+<tr>
+<td><%= transaction.amount%></td>
+<td><%= transaction.transaction_number%></td>
+<td><%= transaction.transaction_type%></td>
+
+</tr>
+<br>
+<%end%>
+</body>

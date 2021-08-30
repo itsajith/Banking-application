@@ -1,0 +1,26 @@
+<h1>Bank Account</h1>
+
+<%= link_to 'Create Bank Account', new_client_account_path(@client) %><br>
+
+<table >
+<thead>
+<tr>
+<th>Account Number</th>&nbsp&nbsp
+<th>Balance</th>&nbsp&nbsp
+<th>Transaction History</th>
+</tr>
+
+</thead>
+
+<body>
+<% @accounts.each do |account| %>
+<tr>
+<td><%= account.account_number%></td>
+<td><%= account.balance%></td>
+<td><%= link_to 'Add Transaction', new_client_account_transaction_path(@client, account) %></td>
+<td><%= link_to 'Show', client_account_transactions_path(@client, account)%></td>
+</tr>
+<br>
+<%end%>
+</body>
+
