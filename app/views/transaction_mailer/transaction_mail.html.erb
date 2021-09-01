@@ -1,0 +1,12 @@
+<h1>your Transaction details</h1>
+<body>
+<p>
+Hi! <%= @account.client.first_name %> <%= @account.client.last_name %> , Rs <%= @transaction.amount %> is 
+<% if @transaction.transaction_type == "deposit" %>
+deposited
+ <%else%> 
+ withdrawed
+ <%end%> from <%= @account.account_number %>
+ </p>
+
+</body>

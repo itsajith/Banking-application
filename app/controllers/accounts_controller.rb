@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = @client.accounts.new(account_params)
+    @account = @client.accounts.new(account_params.merge(user_id:current_user.id))
     if @account.save
       redirect_to client_accounts_path
     else
