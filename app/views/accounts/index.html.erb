@@ -1,13 +1,26 @@
-<h1>Bank Account</h1>
+
+<p class="navbar-text float-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<%=%>
+
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p><br><br>
+<h1 class="text-center">Bank Account</h1>
 
 <%= link_to 'Create Bank Account', new_client_account_path(@client) %><br>
 
-<table >
-<thead>
+<table class="table table-hover table-dark">
+<thead class="thead-light">
 <tr>
-<th>Account Number</th>&nbsp&nbsp
-<th>Balance</th>&nbsp&nbsp
-<th>Transaction History</th>
+<th cscope="col">Account Number</th>&nbsp&nbsp
+<th cscope="col">Balance</th>&nbsp&nbsp
+<th  cscope="col">Transaction History</th>
 </tr>
 
 </thead>
@@ -15,12 +28,13 @@
 <body>
 <% @accounts.each do |account| %>
 <tr>
-<td><%= account.account_number%></td>
+<td scope="row"><%= account.account_number%></td>
 <td><%= account.balance%></td>
 <td><%= link_to 'Add Transaction', new_client_account_transaction_path(@client, account) %></td>
-<td><%= link_to 'Show', client_account_transactions_path(@client, account)%></td>
+<td><%= link_to 'Show all my transaction', client_account_transactions_path(@client, account)%></td>
 </tr>
 <br>
 <%end%>
+</table>
 </body>
 

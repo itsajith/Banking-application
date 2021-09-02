@@ -1,32 +1,47 @@
-<h1>Welcome to Webkorps banking application</h1>
+
+<p class="navbar-text float-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<%=%>
+
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p><br><br>
+<div class="card text-center">
+<h1 > Welcome to Webkorps banking application</h1>
+
 <p>Please fill the below details to <b>create your account</b></p>
 <%= form_for @client do |f| %>
-<div>
+<div class="form-group">
 <%= f.label :first_name%><br>
 <%= f.text_field :first_name%>
 </div>
 
-<div>
+<div class="form-group">
 <%= f.label :last_name %><br>
 <%= f.text_field :last_name%>
 </div>
 
-<div>
+<div class="form-group">
 <%= f.label :Gender %><br>
 <%= f.select :gender, options_for_select(["Select one","male", "female"]) %>
 </div>
 
-<div>
+<div class="form-group">
 <%= f.label :email_address %><br>
 <%= f.text_field :email_address%>
 </div>
 
-<div>
+<div class="form-group">
 <%= f.label :contact_number %><br>
 <%= f.text_field :contact_number%>
 </div>
 
-<div>
+<div class="form-group">
 <%= f.label :country %><br>
 <%= f.select :country, options_for_select(["Select one","India", "America"]) %>
 </div>
@@ -36,3 +51,4 @@
 <%= f.submit %>
 </div>
 <% end %>
+</div>
