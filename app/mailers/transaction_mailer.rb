@@ -1,6 +1,6 @@
 class TransactionMailer < ApplicationMailer
 
-    default :from => "ajithkumar@webkorps.com"
+    default :from => "ajithyuva31@gmail.com"
     
     def transaction_mail(user, account, transaction)
         @user = user

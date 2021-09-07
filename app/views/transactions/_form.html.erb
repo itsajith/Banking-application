@@ -11,7 +11,7 @@
 <%= f.label :Enter_the_amount%><br>
 </div>
 <div class="form-control form-control-sm">
-<%= f.text_field :amount%>
+<%= f.number_field :amount, required: true %>
 </div><br><br>
 <div class = "action">
 <%= f.submit %>
